@@ -10,4 +10,8 @@ class TestController extends Controller
     {
         return "Test Controller Show";
     }
+	 public function showparam($n)
+    {
+        return "Test Controller Show" . $n;
+    }
 }

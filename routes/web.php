@@ -15,3 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/test', 'TestController@show');
+Route::get('/testparam/{n}', 'TestController@showparam', function ($n) {
+    return view('welcome' . $n);
+});
