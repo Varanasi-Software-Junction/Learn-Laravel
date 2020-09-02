@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Response;
 class TestController extends Controller
 {
      public function show()
@@ -12,6 +12,10 @@ class TestController extends Controller
     }
 	 public function showparam($n)
     {
-        return "Test Controller Show" . $n;
+        //return "Test Controller Show" . $n;
+		if($n % 2==0)
+		return Response::view("even");
+	else
+		return Response::view("odd");
     }
 }
