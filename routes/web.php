@@ -38,4 +38,5 @@ Route::post('/webform', function (Request $request)
 	$sum=$n1+$n2;
 	return view("webform",['n1' =>$n1,'n2' =>$n2,'sum'=>$sum]);
 });
+Route::get('/oddeven', 'OddEvenController')->middleware('oddeven');
 
