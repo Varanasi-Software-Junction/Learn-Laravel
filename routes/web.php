@@ -21,7 +21,8 @@ Route::get('/testparam/{n}', 'TestController@showparam');
 Route::get('/controllerform/', 'TestController@addnumbers');
 Route::post('/controllerform/', 'TestController@postaddnumbers');
 
-
+Route::get('/bookinsert', 'BookController@index');
+Route::post('/reportinsert', 'BookController@insert');
 
 
 Route::get('/webform', function ()
