@@ -1,6 +1,7 @@
 
 <?php
 use Illuminate\Http\Request;
+use App\Book;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,28 @@ Route::post('/controllerform/', 'TestController@postaddnumbers');
 
 Route::get('/bookinsert', 'BookController@index');
 Route::post('/reportinsert', 'BookController@insert');
+
+Route::get('/query', function ()
+{
+$data=Book::all();
+		return view('searchall',['data'=>$data]);
+});
+
+Route::get('/where', function ()
+{
+$data = Book::where('subject', 'Recursion')->where('price','123')->orderby('price')->get();
+		return view('searchall',['data'=>$data]);
+});
+
+
+
+
+Route::get('/loop', function ()
+{
+$arr=array(1,2,3,4);
+	return view("loop",['arr'=>$arr]);
+});
+
 
 
 Route::get('/webform', function ()
