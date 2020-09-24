@@ -2,6 +2,7 @@
 <?php
 use Illuminate\Http\Request;
 use App\Book;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,36 @@ use App\Book;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('protected', function () {
+    // Only authenticated users may enter...
+	Auth::logout();
+})->middleware('auth');
+
+Route::get('/login', array('as' => 'login', function()
+{
+	
+	
+		return "Please login here" ;
+}));
+
+
+
+Route::get('/dologin', function ()
+{
+	$email="1";
+	$b=Auth::loginUsingId($email, TRUE);
+	
+		return "Do Login $b" ;
+});
+
+
+
+
+
+
+
 Route::get('/test', 'TestController@show');
 Route::get('/testparam/{n}', 'TestController@showparam');
 
@@ -24,6 +55,10 @@ Route::post('/controllerform/', 'TestController@postaddnumbers');
 
 Route::get('/bookinsert', 'BookController@index');
 Route::post('/reportinsert', 'BookController@insert');
+
+
+
+
 
 Route::get('/query', function ()
 {
