@@ -56,8 +56,10 @@ Route::post('/controllerform/', 'TestController@postaddnumbers');
 Route::get('/bookinsert', 'BookController@index');
 Route::post('/reportinsert', 'BookController@insert');
 
+Route::get('/protected/', 'ProtectController@protectget');
+Route::post('/protected/', 'ProtectController@protectpost');
 
-
+Route::get('/login', 'SessionsController@create')->name('login');
 
 
 Route::get('/query', function ()
@@ -99,3 +101,9 @@ Route::post('/webform', function (Request $request)
 });
 Route::get('/oddeven', 'OddEvenController')->middleware('oddeven');
 
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
