@@ -24,13 +24,6 @@ Route::get('protected', function () {
 	Auth::logout();
 })->middleware('auth');
 
-Route::get('/login', array('as' => 'login', function()
-{
-	
-	
-		return "Please login here" ;
-}));
-
 
 
 Route::get('/dologin', function ()
