@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ProtectController extends Controller
@@ -15,6 +15,16 @@ class ProtectController extends Controller
     {
         $this->middleware('auth');
     }
+
+
+public function currentuser(Request $request)
+{
+$user = Auth::user();
+$id = Auth::id();
+$email = $user->email;
+    return "Current User" . $user . $id . $email;
+	}
+
 
 public function protectget(Request $request)
     {return view('bookinsert');

@@ -76,7 +76,7 @@ $arr=array(1,2,3,4);
 	return view("loop",['arr'=>$arr]);
 });
 
-
+Route::get('/currentuser/', 'ProtectController@currentuser');
 
 Route::get('/webform', function ()
 {
